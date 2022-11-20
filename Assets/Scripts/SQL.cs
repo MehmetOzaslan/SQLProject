@@ -21,7 +21,7 @@ public class SQL : MonoBehaviour
 
 
     [VFXType(VFXTypeAttribute.Usage.GraphicsBuffer)]
-    struct CrimePoint
+    public struct CrimePoint
     {
         public Vector3 position;
         public int year;

@@ -9,8 +9,10 @@ using UnityNpgsql;
 
 public class ConnectionTest
 {
-    public string id;
-    public string pw;
+    [SerializeField]
+    public string id = "";
+    [SerializeField]
+    public string pw = "";
 
     // A Test behaves as an ordinary method
     [Test]
@@ -45,27 +47,50 @@ public class ConnectionTest
         var connection = new NpgsqlConnection(builder);
         connection.Open();
 
-        var command = new NpgsqlCommand("SELECT count(*) FROM crimes;", connection);
+        var command = new NpgsqlCommand("SELECT * FROM music;", connection);
         command.Prepare();
         var reader = command.ExecuteReader(CommandBehavior.CloseConnection);
         
         Assert.True(reader.HasRows);
         while (reader.Read())
         {
-            Debug.Log(reader.GetInt64(0));
+            Debug.Log(reader.GetString(0));
         }
-
-
     }
 
-
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
-    [UnityTest]
-    public IEnumerator ConnectionTestWithEnumeratorPasses()
+    // A Test behaves as an ordinary method
+    [Test]
+    public void TestCrimeGeoLocation()
     {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
-        yield return null;
+
+        var builder = new NpgsqlConnectionStringBuilder();
+        builder.Port = 5433;
+        builder.Database = "csci403";
+        builder.UserName = id;
+        builder.Password = pw;
+        builder.Host = "codd.mines.edu";
+
+
+        var connection = new NpgsqlConnection(builder);
+        connection.Open();
+
+        var command = new NpgsqlCommand("set search_path TO f22_group20;", connection);
+        command.Prepare();
+        command.ExecuteNonQuery();
+
+        command = new NpgsqlCommand(
+         "SELECT geo_x, geo_y FROM crimes, crime_locations WHERE location_id = id AND EXTRACT(YEAR FROM first_occurrence_date) = 2021; ", connection);
+
+        command.Prepare();
+
+        var reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+
+        Assert.True(reader.HasRows);
+        while (reader.Read())
+        {
+            Debug.Log(reader.GetDouble(0) +", " + reader.GetDouble(1));
+        }
     }
+
+
 }

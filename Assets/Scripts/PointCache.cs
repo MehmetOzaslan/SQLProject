@@ -10,8 +10,6 @@ using static SQL;
 
 public class PointCache : MonoBehaviour
 {
-    string id;
-    string pw;
     [SerializeField]
     TMP_Dropdown dropdown;
 
@@ -19,15 +17,7 @@ public class PointCache : MonoBehaviour
     NpgsqlConnection connection;
     int pointCount;
     
-    public void setID(string id)
-    {
-        this.id = id;
-    }
 
-    public void setPW(string pw)
-    {
-        this.pw = pw;
-    }
 
 
     const double minX = 3050128;
@@ -63,8 +53,8 @@ public class PointCache : MonoBehaviour
         var builder = new NpgsqlConnectionStringBuilder();
         builder.Port = 5433;
         builder.Database = "csci403";
-        builder.UserName = id;
-        builder.Password = pw;
+        builder.UserName = Login.id;
+        builder.Password = Login.pw;
         builder.Host = "codd.mines.edu";
 
         connection = new NpgsqlConnection(builder);
@@ -188,30 +178,13 @@ public class PointCache : MonoBehaviour
     }
 
     
-
-
-    // Start is called before the first frame update
-    void Start()
+    public void Initialize()
     {
         InitBuffer();
-
-        //Unfortunately the buffer is garbage collected unless I do this. :(
-        //GetPoints(2017);
-        //GetPoints(2018);
-        //GetPoints(2019);
-        //GetPoints(2020);
-        //GetPoints(2021);
-        //GetPoints(2022);
-
+        GetPoints(2017);
         GetCrimeTypes();
-
         visualEffect.SetGraphicsBuffer(effectBufferID, positionsBuffer);
-
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

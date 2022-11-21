@@ -9,6 +9,8 @@ Things of note:
 - Probably try to avoid scrolling in and moving too far with WASD, there are no bounds there.
 - Running build is located at this link
 - https://github.com/MehmetOzaslan/SQLProjectCrimeBuild/tree/main
+- Not sure what the exact scale and corresponding map is, unfortunately DPD wasn't explicit about which coordinate system was used.
+
 
 Some images:
 

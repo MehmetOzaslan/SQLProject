@@ -3,16 +3,17 @@
 A small one day project. The goals were to learn how to run sql on a .net platform (NPGsql in this case), and get familiar with Unity graphic buffers.
 
 Things of note:
-*Must be connected to Mines VPN for this to work. 
-*Also you need the necessary role & user account to use it, so just logging in won't work.
-*NEED a gpu, since this project is build on Unity URP + VFXgraph.
-*Probably try to avoid scrolling in and moving too far with WASD, there are no bounds there.
-*Running build will be uploaded elsewhere.
+-Must be connected to Mines VPN for this to work. 
+-Also you need the necessary role & user account to use it, so just logging in won't work.
+-NEED a gpu, since this project is build on Unity URP + VFXgraph.
+-Probably try to avoid scrolling in and moving too far with WASD, there are no bounds there.
+-Running build will be uploaded elsewhere.
 
 
 Some images:
 
 Login Page:
+
 ![image](https://user-images.githubusercontent.com/97647743/202963888-a7f312de-5d63-47a8-be53-2e533f5617eb.png)
 
 Vehicle Arson in 2022:

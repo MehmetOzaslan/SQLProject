@@ -25,11 +25,13 @@ public class SQL : MonoBehaviour
     {
         public Vector3 position;
         public int year;
+        public int type;
 
-        public CrimePoint(Vector3 position, int year)
+        public CrimePoint(Vector3 position, int year, int type)
         {
             this.position = position;
             this.year = year;
+            this.type = type;
         }
     }
     public const int CrimePointSize = 16;
@@ -41,7 +43,7 @@ public class SQL : MonoBehaviour
         visualEffect.SetGraphicsBuffer(effectBufferID, positionsBuffer);
         for (int i = 0; i < pointCount; i++)
         {
-            vertexData[i] = new CrimePoint(new Vector3(0, i, i), i % 20 + 2000);
+            vertexData[i] = new CrimePoint(new Vector3(0, i, i), i % 20 + 2000, 0);
         }
 
 

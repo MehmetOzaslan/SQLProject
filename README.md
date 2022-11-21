@@ -7,8 +7,8 @@ Things of note:
 - Also you need the necessary role & user account to use it, so just logging in won't work.
 - NEED a gpu, since this project is build on Unity URP + VFXgraph.
 - Probably try to avoid scrolling in and moving too far with WASD, there are no bounds there.
-- Running build will be uploaded elsewhere.
-
+- Running build is located at this link
+- https://github.com/MehmetOzaslan/SQLProjectCrimeBuild/tree/main
 
 Some images:
 

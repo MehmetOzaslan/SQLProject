@@ -10,7 +10,7 @@ Things of note:
 - Running build is located at this link
 - https://github.com/MehmetOzaslan/SQLProjectCrimeBuild/tree/main
 - Not sure what the exact scale and corresponding map is, unfortunately DPD wasn't explicit about which coordinate system was used.
-- Every small star represents a crime, every tag represents where it was located.
+- Every small star represents a crime, every tag represents where the specified type was located.
 
 
 Some images:
